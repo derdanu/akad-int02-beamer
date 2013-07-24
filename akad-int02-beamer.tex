@@ -15,6 +15,15 @@
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
 \definecolor{mymauve}{rgb}{0.58,0,0.82}
 
+\lstdefinelanguage{JavaScript}{
+  keywords={break, case, catch, continue, debugger, default, delete, do, else, finally, for, function, if, in, instanceof, new, return, switch, this, throw, try, typeof, var, void, while, with},
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]",
+  sensitive=true
+}
+
 \lstset{ %
   backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
   basicstyle=\footnotesize,        % the size of the fonts that are used for the code
@@ -34,7 +43,7 @@
   numbersep=5pt,                   % how far the line-numbers are from the code
   numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
   rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
-  showspaces=true,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
   showstringspaces=true,          % underline spaces within strings only
   showtabs=true,                  % show tabs within strings adding particular underscores
   stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
@@ -111,15 +120,28 @@
 
 \section{Aufbau der Seite}
 \begin{frame} %%Eine Folie
-  \frametitle{Aufbau} %%Folientitel
+  \frametitle{Aufbau der Seite} %%Folientitel
   \framesubtitle{Übersicht} %%Fielenuntertitel
 	\tableofcontents[currentsection, hideothersubsections] 
 \end{frame}
 
+\subsection{Vorüberlegungen}
+\begin{frame} %%Eine Folie
+  \frametitle{Vorüberlegungen} %%Folientitel
+  \framesubtitle{Am Anfang war nichts} %%Fielenuntertitel
+  \begin{block}{}
+	  \begin{enumerate}
+	  	\item ...
+	  	\item ...
+	  	\item ...
+	  \end{enumerate}
+  \end{block}
+\end{frame}
+
+
 \subsection{Tools}
 \begin{frame} %%Eine Folie
-  \frametitle{Tools} %%Folientitel
-  \framesubtitle{Was verwenden wir?} %%Fielenuntertitel
+  \frametitle{Was haben wir für Tools verwendet?} %%Folientitel
   \begin{block}{}
 	  \begin{itemize}
 		\item Cross Platform (Windows, Mac, Linux)
@@ -139,8 +161,7 @@
 
 \subsection{Verzeichnisstruktur}
 \begin{frame} %%Eine Folie
-  \frametitle{Aufbau} %%Folientitel
-  \framesubtitle{Verzeichnisstruktur} %%Fielenuntertitel
+  \frametitle{Verzeichnisstruktur} %%Folientitel
   \begin{block}{Verzeichnisstruktur}
 	\dirtree{%
 	.1 \textbackslash root.
@@ -152,9 +173,43 @@
   \end{block}
 \end{frame}
 
-\subsection{CodeDemo}
+\subsection{Seitenstruktur}
+\begin{frame} %%Eine Folie
+  \frametitle{Seitenstruktur} %%Folientitel
+  \begin{block}{Seitenstruktur}
+	\begin{itemize}
+		\item Div Layout
+	\end{itemize}
+  \end{block}
+\end{frame}
+
+\subsection{Menüstruktur}
+\begin{frame} %%Eine Folie
+  \frametitle{Menüstruktur} %%Folientitel
+  \begin{block}{Menüstruktur}
+	\begin{itemize}
+		\item Home
+		\item Reiseziele
+		\item Unterkünfte
+		\item Buchung
+		\item Informationen
+		\item Über uns
+		\item Impressum
+	\end{itemize}
+  \end{block}
+\end{frame}
+
+
+\section{Internals}
+\begin{frame} %%Eine Folie
+  \frametitle{Internals} %%Folientitel
+  \framesubtitle{Was ist unter der Haube} %%Fielenuntertitel
+	\tableofcontents[currentsection, hideothersubsections] 
+\end{frame}
+
+\subsection{PHP}
 \begin{frame}[fragile]
-\frametitle{Code Demo}
+\frametitle{PHP}
 
 \begin{lstlisting}[language=HTML]
 <h1>Willkommen</h1>
@@ -165,15 +220,135 @@
 \end{lstlisting}
 \end{frame}
 
-\subsection{Seitenstruktur}
-\begin{frame} %%Eine Folie
-  \frametitle{Aufbau} %%Folientitel
-  \framesubtitle{Seitenstruktur} %%Fielenuntertitel
-  \begin{block}{Verzeichnisstruktur}
-	...
-  \end{block}
+\subsection{HTML}
+\begin{frame}[fragile]
+\frametitle{HTML}
+
+\begin{lstlisting}[language=HTML]
+<h1>Willkommen</h1>
+<p>auf den Seiten der Firma Mega Busreisen - Max Mustermann</p>
+
+<img src="images/reisen.jpg" alt="Foto">
+
+\end{lstlisting}
 \end{frame}
 
+\subsection{CSS}
+\begin{frame}[fragile]
+\frametitle{CSS}
+
+\begin{lstlisting}[language=HTML]
+<h1>Willkommen</h1>
+	<p>auf den Seiten der Firma Mega Busreisen - Max Mustermann</p>
+
+	<img src="images/reisen.jpg" alt="Foto">
+
+\end{lstlisting}
+\end{frame}
+
+\subsection{JavaScript}
+\begin{frame}[fragile]
+\frametitle{Javascript}
+
+\begin{lstlisting}[language=javascript]
+function checkForm() {
+
+		error = new Array();
+
+	var reiseziel = document.getElementById('reiseziel');
+	var vorname = document.getElementById('vorname');
+	var nachname = document.getElementById('nachname');
+	var email = document.getElementById('email');
+
+	reiseziel.className = '';
+	vorname.className = '';
+	nachname.className = '';
+	email.className = '';
+	
+
+
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Javascript}
+
+\begin{lstlisting}[language=javascript, firstnumber=14]
+	
+	if (reiseziel.selectedIndex == 0) {
+
+		reiseziel.className = 'error';
+		error.push('* Reiseziel');
+
+	}
+
+	if (vorname.value == '') {
+
+		vorname.className = 'error';
+		error.push('* Vorname');
+
+	}
+
+
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Javascript}
+
+\begin{lstlisting}[language=javascript, firstnumber=28]
+
+	if (nachname.value == '') {
+
+		nachname.className = 'error';
+		error.push('* Nachname');
+
+	}
+
+	if (email.value == '') {
+
+		email.className = 'error';
+		error.push('* Email');
+
+	}
+
+
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Javascript}
+
+\begin{lstlisting}[language=javascript, firstnumber=42]
+
+	if (email.value.indexOf('@') == -1) {
+
+		email.className = 'error';
+		error.push('* keine g%FCltige Email');
+
+	}
+
+	if (error.length > 0) {
+
+		var error_header = 'Folgende Pflichfelder sind nicht ausgef%FCllt:\n\n';
+		alert(unescape(error_header + error.join('\n')));
+		return false;
+	}
+	
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Javascript}
+
+\begin{lstlisting}[language=javascript, firstnumber=56]
+	
+	alert('Vielen Dank, Ihre Anfrage wird umgehend bearbeitet.');
+
+}
+
+\end{lstlisting}
+\end{frame}
 
 \section{Usability and Design}
 \begin{frame} %%Eine Folie
