@@ -9,6 +9,7 @@
 \usepackage[justification=centering,figurename=Abb.]{caption}
 \usepackage{listings}
 \usepackage{color}
+\usepackage{dirtree}
 
 \definecolor{mygreen}{rgb}{0,0.6,0}
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
@@ -71,7 +72,7 @@
 %\logo{\includegraphics[scale=0.1]{akad_logo.png}}
 
 %Inhaltsverzeichniss
-\frame{\tableofcontents} 
+\frame{\tableofcontents[hideothersubsections]} 
 
 
 \section{Über uns}
@@ -85,6 +86,7 @@
   \end{block}
 \end{frame}
 
+\subsection{Daniel Falkner}
 \begin{frame} %%Eine Folie
   \frametitle{Über uns} %%Folientitel
   \framesubtitle{Daniel Falkner} %%Fielenuntertitel
@@ -95,6 +97,7 @@
   \end{block}
 \end{frame}
 
+\subsection{Eugen Grinschuk}
 \begin{frame} %%Eine Folie
   \frametitle{Über uns} %%Folientitel
   \framesubtitle{Eugen Grinschuk} %%Fielenuntertitel
@@ -124,7 +127,29 @@
   \end{block}
 \end{frame}
 
-\section{CodeDemo}
+\section{Aufbau}
+\begin{frame} %%Eine Folie
+  \frametitle{Aufbau} %%Folientitel
+  \framesubtitle{Übersicht} %%Fielenuntertitel
+	\tableofcontents[currentsection] 
+\end{frame}
+
+\subsection{Verzeichnisstruktur}
+\begin{frame} %%Eine Folie
+  \frametitle{Aufbau} %%Folientitel
+  \framesubtitle{Verzeichnisstruktur} %%Fielenuntertitel
+  \begin{block}{Verzeichnisstruktur}
+	\dirtree{%
+	.1 \textbackslash root.
+	.2 css\DTcomment{Stylesheets}.
+	.2 images\DTcomment{Bilder}.
+	.2 include\DTcomment{Unterseiten}.
+	.2 js\DTcomment{Javascript}.
+	}
+  \end{block}
+\end{frame}
+
+\subsection{CodeDemo}
 \begin{frame}[fragile]
 \frametitle{Code Demo}
 
