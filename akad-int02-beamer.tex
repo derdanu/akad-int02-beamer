@@ -455,7 +455,31 @@ function checkForm() {
 
 
 
+\subsection{Url Rewrite}
+\begin{frame}[fragile]
+  \frametitle{Url Rewrite}
+  \framesubtitle{Apache mod\_rewrite} %%Fielenuntertitel
 
+ \begin{block}{.htaccess}
+	Suchmaschinen freundliche URL's \\
+	aus ?seite=impressum wird impressum.html
+  \end{block}
+
+\begin{lstlisting}[language=HTML]
+RewriteEngine On
+RewriteBase /
+RewriteRule ^(.*).html$ index.php?seite=$1
+\end{lstlisting}
+
+  \begin{block}{index.php}
+	Kann Global im Code aktiviert bzw. deaktiviert werden
+  \end{block}
+
+\begin{lstlisting}[language=PHP, firstnumber=4]
+define(USE_MOD_REWRITE, true);
+
+\end{lstlisting}
+\end{frame}
 
 \section*{Quellen}
 \begin{frame} %%Eine Folie
@@ -478,6 +502,8 @@ function checkForm() {
 		\item \url{http://lehrerfortbildung-bw.de/werkstatt/websites/3benutzerfuehrung/ergonomie.htm}
 		\item \url{ http://www.w3schools.com/html/html5_intro.asp}
 		\item \url{http://git-scm.com/}
+		\item \url{http://httpd.apache.org/}
+		\item \url{http://httpd.apache.org/docs/2.2/mod/mod_rewrite.html}
 	\end{itemize}
 \end{frame}
 
