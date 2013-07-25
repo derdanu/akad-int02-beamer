@@ -24,6 +24,14 @@
   sensitive=true
 }
 
+\lstdefinelanguage{CSS}
+{morekeywords={color,background,margin},
+sensitive=false,
+morecomment=[l]{//},
+morecomment=[s]{/*}{*/},
+morestring=[b]",
+} 
+
 \lstset{ %
   backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
   basicstyle=\footnotesize,        % the size of the fonts that are used for the code
@@ -277,32 +285,35 @@
   \end{block}
 \end{frame}
 
+\subsection{Menüstruktur}
+\begin{frame} %%Eine Folie
+  \frametitle{Menüstruktur} %%Folientitel
+	\begin{figure}
+	\includegraphics[scale=0.8]{screenshot_menue.png}
+	\caption{Screenshot des Menü Div}
+	\end{figure}
+\end{frame}
+
 \subsection{Seitenstruktur}
 \begin{frame} %%Eine Folie
   \frametitle{Seitenstruktur} %%Folientitel
   \begin{block}{Seitenstruktur}
 	\begin{itemize}
+		\item keine Frames
 		\item Div Layout
+		\item Menü links
+		\item Content rechts
 	\end{itemize}
   \end{block}
 \end{frame}
 
-\subsection{Menüstruktur}
-\begin{frame} %%Eine Folie
-  \frametitle{Menüstruktur} %%Folientitel
-  \begin{block}{Menüstruktur}
-	\begin{itemize}
-		\item Home
-		\item Reiseziele
-		\item Unterkünfte
-		\item Buchung
-		\item Informationen
-		\item Über uns
-		\item Impressum
-	\end{itemize}
-  \end{block}
-\end{frame}
 
+\begin{frame}
+	\begin{figure}
+	\includegraphics[scale=0.4]{screenshot_website.png}
+	\caption{Screenshot \\ \tiny{\textcolor{gray}				{\url{http://www.int02-studieren-und-arbeiten.de}}}}
+	\end{figure}
+\end{frame}
 
 \section{Internals}
 \begin{frame} %%Eine Folie
@@ -314,11 +325,23 @@
 \begin{frame}[fragile]
 \frametitle{PHP}
 
-\begin{lstlisting}[language=HTML]
-<h1>Willkommen</h1>
-<p>auf den Seiten der Firma Mega Busreisen - Max Mustermann</p>
+\begin{lstlisting}[language=PHP]
+switch ($_GET['seite']) {
 
-<img src="images/reisen.jpg" alt="Foto">
+    case "reiseziele": //Reiseziele
+        $site = "include/reiseziele.html";
+        $title = "";
+        $keywords = "";
+        $description = "";
+        break;
+        // und weitere ...
+    default: // Home Seite und alle ungueltigen Seiten
+        $site = "include/inhalt.html";
+        $title = "";
+        $keywords = "";
+        $description = "";
+        break;
+}
 
 \end{lstlisting}
 \end{frame}
@@ -329,9 +352,15 @@
 
 \begin{lstlisting}[language=HTML]
 <h1>Willkommen</h1>
+
 <p>auf den Seiten der Firma Mega Busreisen - Max Mustermann</p>
 
-<img src="images/reisen.jpg" alt="Foto">
+<img src="images/reisen.jpg" alt="Reisen" title="Reisen" vspace="5" hspace="5" align="left">
+
+<h2>Unser Motto: Einsteigen, Ihr Urlaub beginnt</h2>
+
+<p>Getreu unserem Motto ....</p>
+<br>
 
 \end{lstlisting}
 \end{frame}
@@ -340,16 +369,69 @@
 \begin{frame}[fragile]
 \frametitle{CSS}
 
-\begin{lstlisting}[language=HTML]
-<h1>Willkommen</h1>
-	<p>auf den Seiten der Firma Mega Busreisen - Max Mustermann</p>
-
-	<img src="images/reisen.jpg" alt="Foto">
+\begin{lstlisting}[language=CSS]
+body {
+    background-color: white;
+    font-family: Arial, Helvetica, Tahoma, sans-serif;
+    font-size: 16px;
+    background: url(../images/background.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+#container {
+    margin: 0px auto;
+    width: 950px;
+}
 
 \end{lstlisting}
 \end{frame}
 
+\begin{frame}[fragile]
+\frametitle{CSS}
+
+\begin{lstlisting}[language=CSS, firstnumber=12]
+#menu {
+    float: left;
+    width: 120px;
+    height: 220px;
+    margin-right: 20px;
+    padding-top: 10px;
+    background-color: #ffffff;
+    box-shadow: 3px 3px 4px #000000;
+    background-image:url('../images/badge_yellow.gif');
+    background-repeat: no-repeat;
+    background-position: -40px -40px;
+    opacity: 0.8;
+    border-radius: 6px;
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{CSS}
+
+\begin{lstlisting}[language=CSS, firstnumber=51]
+#inhalt {
+        float: left;
+        width: 780px;
+        background-color: #ffffc6;
+        padding: 0px 10px 20px 10px;
+        margin-bottom: 20px;
+        box-shadow: 3px 3px 4px #000000;
+        border-radius: 6px;
+}
+
+\end{lstlisting}
+\end{frame}
+
+
 \subsection{JavaScript}
+\begin{frame} %%Eine Folie
+	\begin{figure}
+	\includegraphics[scale=0.5]{screenshot_buchung.png}
+	\caption{Screenshot des Buchungsformular}
+	\end{figure}
+\end{frame}
+
 \begin{frame}[fragile]
 \frametitle{Javascript}
 
