@@ -441,11 +441,16 @@ body {
 
 
 \subsection{JavaScript}
-\begin{frame} %%Eine Folie
+\begin{frame}[fragile] %%Eine Folie
 	\begin{figure}
 	\includegraphics[scale=0.5]{screenshot_buchung.png}
 	\caption{Screenshot des Buchungsanfrageformular}
 	\end{figure}
+
+	\begin{lstlisting}[language=HTML, firstnumber=4]
+<form action="" method="post" onsubmit="return checkForm()">
+	\end{lstlisting}
+	
 \end{frame}
 
 \begin{frame}[fragile]
@@ -454,17 +459,17 @@ body {
 \begin{lstlisting}[language=javascript]
 function checkForm() {
 
-		error = new Array();
+  error = new Array();
 
-	var reiseziel = document.getElementById('reiseziel');
-	var vorname = document.getElementById('vorname');
-	var nachname = document.getElementById('nachname');
-	var email = document.getElementById('email');
+  var reiseziel = document.getElementById('reiseziel');
+  var vorname = document.getElementById('vorname');
+  var nachname = document.getElementById('nachname');
+  var email = document.getElementById('email');
 
-	reiseziel.className = '';
-	vorname.className = '';
-	nachname.className = '';
-	email.className = '';
+  reiseziel.className = '';
+  vorname.className = '';
+  nachname.className = '';
+  email.className = '';
 	
 
 
@@ -476,42 +481,19 @@ function checkForm() {
 
 \begin{lstlisting}[language=javascript, firstnumber=14]
 	
-	if (reiseziel.selectedIndex == 0) {
+  if (reiseziel.selectedIndex == 0) {
 
-		reiseziel.className = 'error';
-		error.push('* Reiseziel');
+    reiseziel.className = 'error';
+    error.push('* Reiseziel');
 
-	}
+  }
 
-	if (vorname.value == '') {
+  if (vorname.value == '') {
 
-		vorname.className = 'error';
-		error.push('* Vorname');
+    vorname.className = 'error';
+    error.push('* Vorname');
 
-	}
-
-
-\end{lstlisting}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Javascript}
-
-\begin{lstlisting}[language=javascript, firstnumber=28]
-
-	if (nachname.value == '') {
-
-		nachname.className = 'error';
-		error.push('* Nachname');
-
-	}
-
-	if (email.value == '') {
-
-		email.className = 'error';
-		error.push('* Email');
-
-	}
+  }
 
 
 \end{lstlisting}
@@ -522,19 +504,19 @@ function checkForm() {
 
 \begin{lstlisting}[language=javascript, firstnumber=42]
 
-	if (email.value.indexOf('@') == -1) {
+  if (email.value.indexOf('@') == -1) {
 
-		email.className = 'error';
-		error.push('* keine g%FCltige Email');
+    email.className = 'error';
+    error.push('* keine g%FCltige Email');
 
-	}
+  }
 
-	if (error.length > 0) {
+  if (error.length > 0) {
 
-		var error_header = 'Folgende Pflichfelder sind nicht ausgef%FCllt:\n\n';
-		alert(unescape(error_header + error.join('\n')));
-		return false;
-	}
+    var error_header = 'Folgende Pflichfelder sind nicht ausgef%FCllt:\n\n';
+    alert(unescape(error_header + error.join('\n')));
+    return false;
+  }
 	
 \end{lstlisting}
 \end{frame}
@@ -544,7 +526,7 @@ function checkForm() {
 
 \begin{lstlisting}[language=javascript, firstnumber=56]
 	
-	alert('Vielen Dank, Ihre Anfrage wird umgehend bearbeitet.');
+  alert('Vielen Dank, Ihre Anfrage wird umgehend bearbeitet.');
 
 }
 
@@ -601,10 +583,13 @@ define(USE_MOD_REWRITE, true);
 <div class="fb-like" data-href="http://www.int02.studieren-und-arbeiten.de/" data-send="false" data-width="450" data-show-faces="true"></div>
 \end{lstlisting}
 
-
-
 \end{frame}
 
+\begin{frame} %%Eine Folie
+  \frametitle{Live Demo} %%Folientitel
+  \begin{exampleblock}{Live Demo}
+\url{http://www.int02.studieren-und-arbeiten.de}  \end{exampleblock}
+\end{frame}
 
 \section{Modernes Webdesign}
 \begin{frame} %%Eine Folie
@@ -630,7 +615,7 @@ define(USE_MOD_REWRITE, true);
 	\end{block}
 	\begin{block}{Links}	
 		\begin{itemize}
-			\item \url{http://www.int02.studieren-und-arbeiten.de/}
+			\item \url{http://www.int02.studieren-und-arbeiten.de}
 			\item \url{https://github.com/derdanu/akad-int02-website}
 			\item \url{https://github.com/derdanu/akad-int02-beamer}						
 		\end{itemize}
